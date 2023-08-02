@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<meta charset="UTF-8">
+<title>鹿老师说Puls - 外语专项练习</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="鹿老师说Puls，趣味练语法，游戏化学习"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="https://static.coolapk.com/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://static.coolapk.com/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://static.coolapk.com/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://static.coolapk.com/images/apple-touch-icon.png">
+    <link rel="stylesheet" href="./static/web/v8/weui/1.1.2/weui.min.css">
+    <link rel="stylesheet" href="./static/web/v8/css/animate.min.css">
+    <link rel="stylesheet" href="./static/web/v11/css/swiper-bundle.min.css">
+<!--    <link rel="stylesheet" href="//static.coolapk.com/static/web/v11/css/index_v11.css?v=6">-->
+    <link rel="stylesheet" href="./static/web/v12/css/index_v12.css">
+    <style>
+        .web-download-android:hover {
+            content: url("./static/web/v11/img/android_hover.png");
+        }
+
+        .web-download-iphone:hover {
+            content: url("./static/web/v11/img/iphone_hover.png");
+        }
+
+        body {
+            background-color: #F5F5F5;
+        }
+
+        #footer {
+            margin-top: 20px;
+            z-index: 10;
+            padding: 40px;
+            display: block;
+        }
+
+        #footer .content {
+            /*width: 1000px;*/
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #footer .content .footer-left .footer-text-box {
+            margin-left: 20px;
+        }
+
+        #footer .content .footer-left .footer-navbar {
+            margin-top: 40px;
+        }
+
+        #footer .content .footer-left .footer-navbar a {
+            font-size: 16px;
+        }
+
+        #footer .content .footer-left .icon-group {
+            display: none;
+            justify-content: left;
+        }
+
+        #footer .content .footer-left .icon-group .footer-logo-box {
+            width: 82px;
+            height: 82px;
+            background-color: #fff;
+            border-radius: 20px;
+        }
+
+        #footer .content .footer-left .icon-group .footer-logo-box img {
+            width: 100%;
+        }
+
+        #footer .content .footer-left .icon-group .footer-text-box {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-left: 10px;
+        }
+
+        #footer .content .footer-left .icon-group .footer-text-box .title {
+            font-size: 30px;
+            color: #212121;
+        }
+
+        #footer .content .footer-left .icon-group .footer-text-box .sub-title {
+            font-size: 20px;
+            color: #757575;
+        }
+
+        #footer .content .footer-left .footer-info {
+            font-size: 14px;
+        }
+
+        #footer .content .footer-right {
+            display: none;
+            align-items: center;
+            text-align: center;
+        }
+
+        #footer .content .footer-right img {
+            border-radius: 5px;
+        }
+
+        .footer-navbar ul li {
+            display: inline;
+        }
+
+        .footer-navbar ul li a {
+            line-height: 2em;
+            color: #212121;
+            border-right: #212121 solid 1px;
+            padding: 0 5px;
+        }
+
+
+
+        .footer-navbar .first {
+            padding-left: 0;
+        }
+
+        .footer-navbar .last {
+            border-right: 0;
+        }
+
+        .footer-info p {
+            color: #212121;
+            line-height: 2em;
+        }
+
+        .footer-info p img {
+            height: 1.2em;
+            margin-bottom: -2px;
+        }
+
+        .footer-qrcode-box {
+            margin: 20px;
+        }
+
+        .footer-qrcode-box img {
+            width: 120px;
+            border: 1px solid #e6e6e6;
+        }
+
+        .footer-qrcode-box p {
+            font-size: 15px;
+            color: #212121;
+        }
+
+        /*动态列表样式*/
+        #feed-page {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        #feed-content {
+            width: 960px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #feed-part {
+            width: 632px;
+        }
+
+        #rank-part {
+            width: 306px;
+        }
+
+        .feed-emoji {
+            height: 18px;
+            margin-bottom: -3px;
+        }
+
+        #rank-part .rank-list ul li {
+            list-style-type: none;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #rank-part .rank-list ul li .rank-group {
+            border-radius: 4px;
+            height: 20px;
+            width: 20px;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 8px;
+            background-color: transparent;
+            color: #212121;
+        }
+
+        #rank-part .rank-list ul li .rank-num {
+            display: block;
+            height: 20px;
+            line-height: 20px;
+            text-align: center
+        }
+
+        #rank-part .rank-list ul li:nth-of-type(1) .rank-group {
+            background: #F44336;
+            color: #FFFFFF;
+        }
+
+        #rank-part .rank-list ul li:nth-of-type(2) .rank-group {
+            background: #F57C00;
+            color: #FFFFFF;
+        }
+
+        #rank-part .rank-list ul li:nth-of-type(3) .rank-group {
+            background: #FFC107;
+            color: #FFFFFF;
+        }
+
+        #rank-part .rank-list ul li .hot-group {
+            min-width: 70px;
+        }
+
+        @media screen and (min-width: 1000px) {
+            #footer .content {
+                width: 1000px;
+            }
+
+            #footer .content .footer-left .icon-group {
+                display: flex;
+            }
+
+            #footer .content .footer-right {
+                display: flex;
+            }
+        }
+    </style>
+<script src="./static/web/v8/weui/1.1.2/weui.js"></script>
+<script src="./static/web/v11/js/swiper-bundle.min.js"> </script>
+</head>
+<body data-uid="0" data-request-app="Web" data-request-hash="42190779ryjzhr" style="margin: 0;;background-color: #f7f7f7;">
+
+
+<div id="main">
+    <div id="header">
+        <div class="main" style="width: 1000px;">
+            <a href="index.html">
+                <span id="header-logo" style="display: flex;justify-content: left;align-items: center;">
+                    <img style="height: 35px;margin-right: 10px;" src="./static/web/v8/images/coolapklogo.png" alt="">
+                    <span style="font-size: 28px;width: 100px;">鹿老师</span>
+                </span>
+            </a>
+           
+        </div>
+
+    </div>
+    <div id="content">
+        <div id="first_screen">
+            <div id="main-content">
+                <div class="text-group">
+                    <div class="weui-flex logo-box">
+                        <div class="weui-flex__item">
+                            <img class="logo" src="./static/web/v8/images/coolapklogo.png" alt="鹿老师">
+                        </div>
+                    </div>
+                    <div class="weui-flex">
+                        <div class="weui-flex__item">
+                            <p class="title">外语专项练习</p>
+                            <p class="sub-title mobile-display">告别枯燥，游戏中带你玩转外语</p>
+                            <p class="sub-title pc-display">真正零基础入门<br>轻松游戏化学习<br>（如需下载请用手机打开本网站）</p>
+                        </div>
+                    </div>
+                   
+
+                      
+                    </div>
+                    <div id="mobile-download-box" class="weui-flex">
+                        <div class="weui-flex__item">
+                            <div class="mobile-download-button-box">
+                                <a href="https://develope.lanzoug.com/file/?BmAFOw08UmMACQY+VmNVOVplDzcCtFTvUelUuleLVtZUsVW6WYwOsgX8ULJQ4V34BsoP4gf3VvlVfFA3VXkHbQYgBTQNOVJqADMGD1ZrVTBaPQ87Am9Ub1FgVGFXOlZuVGJVO1kiDjwFIFA7UDBdbwZtDzkHaVZlVWBQZFUvB3YGdgVvDWJSNgBkBmNWLVVkWjgPJQJtVGRReVQ0V21WZVRmVTVZZQ5oBTJQZVBhXW8GOQ9uBz1WNlVqUGZVbwdgBjIFZQ0yUjYAYgZkVmZVYFo1DzwCZFRnUTBUfFdqVidUP1UkWXEOKQU2UHRQbV04BmEPOQdrVmBVZFBvVTAHMwYgBSYNOVJrADMGNlY/VWVaNg8zAm1Ub1FlVGFXOFZlVGJVLFkqDnwFNVBqUHNdYQZsDywHLVYkVSVQa1U4BzAGPwViDWlSNQBkBmBWMlVgWiYPfwI0VCZRa1RjVzlWZ1R6VTBZNw5oBX1QNFA0XWoGcg87B2A="><img src="./static/web/v8/images/download_now.png" alt="立即下载"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="social-box">
+                                           <a class="weui-flex__item" target="_blank" ><img
+                                                       src="https://pic.imgdb.cn/item/64c978761ddac507cc11c046.png"></a>
+                                           <a class="weui-flex__item"  target="_blank" ><img
+                                                       src="https://pic.imgdb.cn/item/64c9787d1ddac507cc11c72e.png"></a>
+                                           <span class="weui-flex__item mobile-un-display wx-qr-float-spam">
+                                               <div>
+                                                   <img src="https://pic.imgdb.cn/item/64c978761ddac507cc11bff7.png">
+                                               </div>
+                                               
+                                           </span>
+                                           <a class="weui-flex__item" 
+                                              target="_blank" ><img
+                                                       src="https://pic.imgdb.cn/item/64c978761ddac507cc11c009.png"></a>
+                                           <a class="weui-flex__item"  target="_blank" ><img
+                                                       src="https://pic.imgdb.cn/item/64c978761ddac507cc11bfef.png"></a>
+                                           <a class="weui-flex__item" target="_blank" ><img
+                                                       src="https://pic.imgdb.cn/item/64c978761ddac507cc11c01f.png"></a>
+                                           <a class="weui-flex__item" target="_blank" ><img
+                                                       src="https://pic.imgdb.cn/item/64c97d4f1ddac507cc166c40.png"></a>
+                                       </div>
+                                   </div>
+                <div class="weui-flex image-group">
+                    <div class="weui-flex__item large-image-box">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img class="large-image" src="https://simg.doyo.cn/imgfile/bgame/202006/292895219105411zer6.jpg">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="large-image" src="http://pic.sj3g.com/images/e2/4f/478ea1c50f54230504d9cec288b1c401e92f4fe2.jpg">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="large-image" src="http://pic.sj3g.com/images/3d/85/c41cf2ca756e9c7cf5e1bdb11bc4f3502b64853d.jpg">
+                                </div>
+                               
+                            </div>
+                            <!-- 如果需要分页器 -->
+                            <div class="swiper-pagination"></div>
+                        </div>
+                           </div>
+                                    </div>
+                                  <div class="weui-flex mobile-social-group">
+                    <div id="mobile-social-box">
+                        <a class="weui-flex__item"  target="_blank" ><img
+						src="https://pic.imgdb.cn/item/64c978761ddac507cc11c046.png"></a>
+						
+                        <a class="weui-flex__item" target="_blank" ><img
+						src="https://pic.imgdb.cn/item/64c9787d1ddac507cc11c72e.png"></a>
+						
+                        <span class="weui-flex__item mobile-un-display wx-qr-float-spam">
+                            <div>
+								 <img src="https://pic.imgdb.cn/item/64c978761ddac507cc11bff7.png">
+                            </div>
+                           
+                        </span>
+                        <a class="weui-flex__item" target="_blank" ><img
+						<img src="https://pic.imgdb.cn/item/64c978761ddac507cc11bff7.png">
+                        <a class="weui-flex__item" href="https://www.iesdouyin.com/share/user/83451843516" target="_blank" title="抖音主页：酷安数码"><img
+                                    src="https://pic.imgdb.cn/item/64c978761ddac507cc11c009.png"></a>
+                        <a class="weui-flex__item" href="https://www.toutiao.com/c/user/105585125568/" target="_blank" title="头条主页：酷安机佬"><img
+                                  src="https://pic.imgdb.cn/item/64c978761ddac507cc11bfef.png"></a>
+                        <a class="weui-flex__item" href="http://space.bilibili.com/386137684" target="_blank" title="B站主页：酷安数码"><img
+                                     src="https://pic.imgdb.cn/item/64c97d4f1ddac507cc166c40.png"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;">
+        <img src="./static/web/v11/img/android_hover.png" alt="立即下载">
+        <img src="./static/web/v11/img/iphone_hover.png" alt="立即下载">
+    </div>
+</div>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: 'horizontal', // 垂直切换选项
+        loop: true, // 循环模式选项
+        autoplay: {
+            delay: 6000,//1秒切换一次
+        },
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    })
+</script>
+<script type="text/javascript">
+// stat script 1
+</script>
+
+<div style="display:none">
+<!-- stat script 2 -->
+</div>
+
+</div>
+</body>
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7132d8577cc4aa4ae4ee939cd42eb02b' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</html>
